@@ -30,6 +30,8 @@ def load_weather_data():
             :humidity_percent,
             :wind_speed_kmh
         )
+        ON CONFLICT (observation_time)
+        DO NOTHING        
     """)
 
     with engine.connect() as connection:
